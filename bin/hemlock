@@ -18,22 +18,22 @@ command :drink do |c|
 
   c.action do
     flashcards = Hemlock::CSVtoFlashcards.create_flashcards
-    printf("%s", flashcards.to_s)
-    # seed = rand(0..(flashcards.length - 1))
-    # 5.times do
-    #   flashcard = flashcards[seed]
-    #   puts flashcard.question
-    #   answer = Readline.readline('>', false)
-    #   if answer == flashcard.answer
-    #     puts 'Correct'
-    #   else
-    #     3.times do
-    #       puts 'You must submit to the quarries'
-    #       puts flashcard.question
-    #       answer = Readline.readline('>', false)
-    #     end
-    #   end
-    # end
+    5.times do
+      seed = rand(0..(flashcards.length - 1))
+      flashcard = flashcards[seed]
+      puts flashcard.question
+      answer = Readline.readline('>', false)
+      if answer == flashcard.answer
+        puts 'Correct'
+      else
+        puts 'You must submit to the quarries'
+        3.times do
+          puts flashcard.question
+          puts flashcard.answer
+          answer = Readline.readline('>', false)
+        end
+      end
+    end
   end
 end
 

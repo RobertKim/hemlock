@@ -4,9 +4,9 @@ require 'csv'
 module Hemlock
   class CSVtoFlashcards
 
-    def self.create_flashcards(folder_name="~/Dropbox/bar_flashcards")
+    def self.create_flashcards(folder_name="/Dropbox/bar_flashcards")
       flashcards = []
-      Dir["#{folder_name}/*.csv"].each do |file|
+      Dir[ENV['HOME'] + "#{folder_name}/*.csv"].each do |file|
         flashcards << self.from_file(file)
       end
       return flashcards.flatten
@@ -15,7 +15,7 @@ module Hemlock
     def self.from_file(file)
       flashcards = []
       CSV.read(file).each do |row|
-        flashcards << Flashcard.new(row[0], row[1])
+        flashcards << Flashcard.new(row[0], row[1]) unless row[0].nil?
       end
       return flashcards
     end
