@@ -1,4 +1,5 @@
 require 'hemlock/version.rb'
+require 'hemlock/csv_to_flashcards'
 
-# Add requires for other files you add to your project here, so
-# you just need to require this one file in your bin file
+module Hemlock
+end

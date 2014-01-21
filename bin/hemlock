@@ -1,35 +1,40 @@
 #!/usr/bin/env ruby
 require 'gli'
-begin # XXX: Remove this begin/rescue before distributing your app
 require 'hemlock'
-rescue LoadError
-  STDERR.puts "In development, you need to use `bundle exec bin/hemlock` to run your app"
-  STDERR.puts "At install-time, RubyGems will make sure lib, etc. are in the load path"
-  STDERR.puts "Feel free to remove this message from bin/hemlock now"
-  exit 64
-end
+require 'readline'
 
 include GLI::App
 
-program_desc 'Describe your application here'
+program_desc 'Memorization through repetitive writing - Socrates is not amused'
 
 version Hemlock::VERSION
 
-desc 'Describe some switch here'
-switch [:s,:switch]
-
-desc 'Describe some flag here'
-default_value 'the default'
-arg_name 'The name of the argument'
-flag [:f,:flagname]
-
 pre do |global,command,options,args|
-  # Pre logic here
-  # Return true to proceed; false to abort and not call the
-  # chosen command
-  # Use skips_pre before a command to skip this block
-  # on that command only
   true
+end
+
+command :drink do |c|
+  c.desc "Crito, we owe a rooster to Asclepius. Please, don't forget to pay the debt."
+
+  c.action do
+    flashcards = Hemlock::CSVtoFlashcards.create_flashcards
+    printf("%s", flashcards.to_s)
+    # seed = rand(0..(flashcards.length - 1))
+    # 5.times do
+    #   flashcard = flashcards[seed]
+    #   puts flashcard.question
+    #   answer = Readline.readline('>', false)
+    #   if answer == flashcard.answer
+    #     puts 'Correct'
+    #   else
+    #     3.times do
+    #       puts 'You must submit to the quarries'
+    #       puts flashcard.question
+    #       answer = Readline.readline('>', false)
+    #     end
+    #   end
+    # end
+  end
 end
 
 post do |global,command,options,args|

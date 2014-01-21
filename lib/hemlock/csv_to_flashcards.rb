@@ -4,10 +4,10 @@ require 'csv'
 module Hemlock
   class CSVtoFlashcards
 
-    def self.create_flashcards(folder_name)
+    def self.create_flashcards(folder_name="~/Dropbox/bar_flashcards")
       flashcards = []
       Dir["#{folder_name}/*.csv"].each do |file|
-        flashcards = from_file(file)
+        flashcards << self.from_file(file)
       end
       return flashcards.flatten
     end
