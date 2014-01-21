@@ -16,8 +16,6 @@ spec = Gem::Specification.new do |s|
   s.rdoc_options << '--title' << 'hemlock' << '--main' << 'README.rdoc' << '-ri'
   s.bindir = 'bin'
   s.executables << 'hemlock'
-  s.add_development_dependency('rake')
-  s.add_development_dependency('rdoc')
-  s.add_development_dependency('aruba')
+  s.add_development_dependency('guard-rspec')
   s.add_runtime_dependency('gli','2.9.0')
 end
