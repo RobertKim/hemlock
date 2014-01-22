@@ -18,4 +18,5 @@ spec = Gem::Specification.new do |s|
   s.executables << 'hemlock'
   s.add_development_dependency('guard-rspec')
   s.add_runtime_dependency('gli','2.9.0')
+  s.add_runtime_dependency('rainbow', '1.99.1')
 end

@@ -2,6 +2,7 @@
 require 'gli'
 require 'hemlock'
 require 'readline'
+require 'rainbow'
 
 include GLI::App
 
@@ -22,15 +23,15 @@ command :drink do |c|
       seed = rand(0..(flashcards.length - 1))
       flashcard = flashcards[seed]
       puts flashcard.question
-      answer = Readline.readline('>', false)
+      answer = Readline.readline('>> ', false)
       if answer == flashcard.answer
-        puts 'Correct'
+        puts printf Rainbow('Correct').green
       else
-        puts 'You must submit to the quarries'
+        puts printf Rainbow('You must submit to the quarries').red
         3.times do
           puts flashcard.question
           puts flashcard.answer
-          answer = Readline.readline('>', false)
+          answer = Readline.readline('>> ', false)
         end
       end
     end
