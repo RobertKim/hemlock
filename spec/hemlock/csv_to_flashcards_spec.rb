@@ -13,4 +13,16 @@ describe Hemlock::CSVtoFlashcards do
     specify { expect(flashcards.first.question).to eq 'do' }
     specify { expect(flashcards.last.answer).to eq 'a name I call myself' }
   end
+
+  context '#create_flashcards' do
+    specify { expect(subject.create_flashcards(nil)).to_not eq [] }
+  end
+
+  context "#replace_tildes" do
+    let(:dropbox) { "~/dropbox/" }
+    let(:ohmy) { "~/ohmy~/" }
+
+    specify { expect(subject.replace_tildes(dropbox)).to eq "#{Dir.home}/dropbox/" }
+    specify { expect(subject.replace_tildes(ohmy)).to eq "#{Dir.home}/ohmy~/" }
+  end
 end

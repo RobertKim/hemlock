@@ -4,7 +4,7 @@ spec = Gem::Specification.new do |s|
   s.name = 'hemlock'
   s.version = Hemlock::VERSION
   s.author = 'Nicholas Shook'
-  s.email = 'your@email.address.com'
+  s.email = 'nicholas.shook@gmail.com'
   s.homepage = 'https://github.com/shicholas/hemlock'
   s.platform = Gem::Platform::RUBY
   s.summary = 'Memorization through written repetition - Socrates is not amused'
@@ -12,8 +12,7 @@ spec = Gem::Specification.new do |s|
 ")
   s.require_paths << 'lib'
   s.has_rdoc = true
-  s.extra_rdoc_files = ['README.rdoc','hemlock.rdoc']
-  s.rdoc_options << '--title' << 'hemlock' << '--main' << 'README.rdoc' << '-ri'
+  s.rdoc_options << '--title' << 'hemlock' << '--main' << '-ri'
   s.bindir = 'bin'
   s.executables << 'hemlock'
   s.add_development_dependency('guard-rspec')

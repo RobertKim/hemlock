@@ -17,8 +17,13 @@ end
 command :drink do |c|
   c.desc "Crito, we owe a rooster to Asclepius. Please, don't forget to pay the debt."
 
-  c.action do
-    flashcards = Hemlock::CSVtoFlashcards.create_flashcards
+  c.action do |global_options, options, args|
+    if args.empty?
+      puts printf Rainbow("Using Nick's Dropbox folder").blue
+      args = []
+    end
+    flashcards = Hemlock::CSVtoFlashcards.create_flashcards(args.join)
+    exit_now!('There are no flashcards in this folder') if flashcards.empty?
     5.times do
       seed = rand(0..(flashcards.length - 1))
       flashcard = flashcards[seed]
@@ -43,18 +48,6 @@ command :drink do |c|
       end
     end
   end
-end
-
-post do |global,command,options,args|
-  # Post logic here
-  # Use skips_post before a command to skip this
-  # block on that command only
-end
-
-on_error do |exception|
-  # Error logic here
-  # return false to skip default error handling
-  true
 end
 
 exit run(ARGV)

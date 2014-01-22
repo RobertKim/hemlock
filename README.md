@@ -2,14 +2,14 @@
 
 ```
 gem install hemlock
-hemlock drink
+hemlock drink ~/Dropbox/flashcards
 ```
+or whatever folder contains .csv flashcards.
 
 This was made by me for me to study for the bar. It basically asks me to repeat rules I need to know until they are ingrained in my memory.
 
-## TODO
+## Usage
 
-* Add support for someone else's flashcards
 * Don't care about punctuation
 
 ## Why the name?
