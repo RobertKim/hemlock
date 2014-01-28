@@ -9,5 +9,9 @@ module Hemlock
 
     alias_method :question, :term
     alias_method :answer, :definition
+
+    def correct?(guess)
+      guess.upcase == self.answer.upcase ? true : false
+    end
   end
 end

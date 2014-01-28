@@ -15,7 +15,7 @@ describe Hemlock::CSVtoFlashcards do
   end
 
   context '#create_flashcards' do
-    specify { expect(subject.create_flashcards(nil)).to_not eq [] }
+    specify { expect(subject.create_flashcards('')).to_not eq [] }
   end
 
   context "#replace_tildes" do

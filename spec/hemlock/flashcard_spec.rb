@@ -10,4 +10,10 @@ describe Hemlock::Flashcard do
   specify { expect(flashcard.definition).to eq 'a great color' }
   specify { expect(flashcard.answer).to eq 'a great color' }
 
+  context '#correct?' do
+    it 'should not care about capitilization' do
+      expect(flashcard.correct?('A GREAT COLOR')).to eq true
+    end
+  end
+
 end

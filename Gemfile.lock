@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hemlock (0.0.5)
+    hemlock (0.0.6)
       gli (= 2.9.0)
       rainbow (= 1.99.1)
 

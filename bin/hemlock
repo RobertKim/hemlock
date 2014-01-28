@@ -29,7 +29,7 @@ command :drink do |c|
       flashcard = flashcards[seed]
       puts flashcard.question
       answer = Readline.readline('>> ', false)
-      if answer == flashcard.answer
+      if flashcard.correct?(answer)
         puts printf Rainbow('Correct').green
       else
         puts printf Rainbow('You must submit to the quarries').red
@@ -37,8 +37,8 @@ command :drink do |c|
         while i < 3 do
           puts flashcard.question
           puts flashcard.answer
-          answer = Readline.readline('>> ', false)
-          if answer == flashcard.answer
+          answer = Readline.readline('>> ', true)
+          if flashcard.correct?(answer)
             i += 1
           else
             puts printf Rainbow('Who are you? Sisyphus?!').red
