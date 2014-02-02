@@ -11,6 +11,7 @@ spec = Gem::Specification.new do |s|
   s.files = `git ls-files`.split("
 ")
   s.require_paths << 'lib'
+  s.require_paths << 'flashcards'
   s.has_rdoc = true
   s.rdoc_options << '--title' << 'hemlock' << '--main' << '-ri'
   s.bindir = 'bin'

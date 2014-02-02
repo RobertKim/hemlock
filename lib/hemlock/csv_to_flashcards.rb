@@ -4,8 +4,14 @@ require 'csv'
 module Hemlock
   class CSVtoFlashcards
 
+    def self.default_flashcard_directory
+      spec = Gem::Specification.find_by_name('hemlock')
+      gem_root = spec.gem_dir
+      folder = gem_root + '/flashcards'
+    end
+
     def self.create_flashcards(folder_name)
-      folder_name = "~/Dropbox/bar_flashcards" if folder_name.empty?
+      folder_name = default_flashcard_directory if folder_name.empty?
       folder_name = self.replace_tildes(folder_name)
       flashcards = []
       Dir["#{folder_name}/*.csv"].each do |file|
