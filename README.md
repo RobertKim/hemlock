@@ -15,6 +15,7 @@ This was made by me for me to study for the bar, but if hopefully it can help ot
 ## TODO
 
 * Don't care about punctuation
+* Deploy to gitlab
 
 ## Why the name?
 Hemlock is what Socrates was forced to drink to kill himself. As someone who detested writing because it erodes memory, I thought I'd dedicate my forced writing practice to him. RIP old guy.
