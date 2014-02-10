@@ -12,10 +12,5 @@ or whatever folder contains .csv flashcards.
 
 This was made by me for me to study for the bar, but if hopefully it can help others deal with one of the biggest flaws of academia/standardized testing, requiring rote memorization.
 
-## TODO
-
-* Don't care about punctuation
-* Deploy to redmine
-
 ## Why the name?
 Hemlock is what Socrates was forced to drink to kill himself. As someone who detested writing because it erodes memory, I thought I'd dedicate my forced writing practice to him. RIP old guy.
