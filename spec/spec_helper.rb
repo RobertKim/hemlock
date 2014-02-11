@@ -1,4 +1,5 @@
 require 'hemlock/csv_to_flashcards'
+require 'hemlock/turn'
 require 'thor'
 require 'stringio'
 

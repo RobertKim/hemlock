@@ -5,7 +5,7 @@ module Hemlock
   class CSVtoFlashcards
 
     def self.create_flashcards(folder_name)
-      folder_name = default_flashcard_directory if folder_name.empty?
+      folder_name = default_flashcard_directory
       folder_name = self.replace_tildes(folder_name)
       flashcards = []
       Dir["#{folder_name}/*.csv"].each do |file|

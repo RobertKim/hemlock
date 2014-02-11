@@ -18,34 +18,11 @@ command :drink do |c|
   c.desc "Crito, we owe a rooster to Asclepius. Please, don't forget to pay the debt."
 
   c.action do |global_options, options, args|
-    if args.empty?
-      puts printf Rainbow("Using native flashcards").blue
-      args = []
-    end
-    flashcards = Hemlock::CSVtoFlashcards.create_flashcards(args.join)
-    exit_now!('There are no flashcards in this folder') if flashcards.empty?
-    5.times do
-      seed = rand(0..(flashcards.length - 1))
-      flashcard = flashcards[seed]
-      puts flashcard.question
-      answer = Readline.readline('>> ', false)
-      if flashcard.correct?(answer)
-        puts printf Rainbow('Correct').green
-      else
-        puts printf Rainbow('You must submit to the quarries').red
-        i = 1
-        while i < 3 do
-          puts flashcard.question
-          puts flashcard.answer
-          answer = Readline.readline('>> ', true)
-          if flashcard.correct?(answer)
-            i += 1
-          else
-            puts printf Rainbow('Who are you? Sisyphus?!').red
-            redo
-          end
-        end
-      end
+    flashcards = Hemlock::CSVtoFlashcards.create_flashcards
+    number_of_turns = arg.first.to_i || 5
+    number_of_turns.times do
+      flashcard = flashcards.sample
+      Hemlock::Turn.new(flashcard).take_turn
     end
   end
 end
