@@ -8,12 +8,8 @@ spec = Gem::Specification.new do |s|
   s.homepage = 'https://github.com/shicholas/hemlock'
   s.platform = Gem::Platform::RUBY
   s.summary = 'Memorization through written repetition - Socrates is not amused'
-  s.files = `git ls-files`.split("
-")
-  s.require_paths << 'lib'
-  s.require_paths << 'flashcards'
-  s.has_rdoc = true
-  s.rdoc_options << '--title' << 'hemlock' << '--main' << '-ri'
+  s.files = `git ls-files`.split("\n")
+  s.require_paths << 'lib' << 'flashcards'
   s.bindir = 'bin'
   s.executables << 'hemlock'
   s.add_development_dependency('guard-rspec')

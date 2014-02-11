@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require 'gli'
 require 'hemlock'
-require 'readline'
 require 'rainbow'
 
 include GLI::App
@@ -10,16 +9,12 @@ program_desc 'Memorization through repetitive writing - Socrates is not amused'
 
 version Hemlock::VERSION
 
-pre do |global,command,options,args|
-  true
-end
-
 command :drink do |c|
   c.desc "Crito, we owe a rooster to Asclepius. Please, don't forget to pay the debt."
 
   c.action do |global_options, options, args|
+    number_of_turns = args.empty? ? 5 : args.first.to_i
     flashcards = Hemlock::CSVtoFlashcards.create_flashcards
-    number_of_turns = arg.first.to_i || 5
     number_of_turns.times do
       flashcard = flashcards.sample
       Hemlock::Turn.new(flashcard).take_turn

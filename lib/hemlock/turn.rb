@@ -1,3 +1,5 @@
+require 'readline'
+
 module Hemlock
   class Turn
 
