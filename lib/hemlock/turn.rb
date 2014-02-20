@@ -1,4 +1,5 @@
 require 'readline'
+require 'rainbow'
 
 module Hemlock
   class Turn
@@ -11,9 +12,9 @@ module Hemlock
       puts @flashcard.question
       guess = Readline.readline('>> ', false)
       if @flashcard.correct?(guess)
-        puts printf Rainbow('Correct').green
+        printf Rainbow('Correct').green
       else
-        puts printf Rainbow('You must submit to the quarries').red
+        printf Rainbow('You must submit to the quarries').red
         punishment
       end
     end
@@ -29,7 +30,7 @@ module Hemlock
         if @flashcard.correct?(guess)
           i += 1
         else
-          puts printf Rainbow('Who are you? Sisyphus?!').red
+          printf Rainbow('Who are you? Sisyphus?!').red
           redo
         end
       end

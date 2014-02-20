@@ -10,7 +10,7 @@ RSpec.configure do |config|
   config.order = 'random'
 end
 
-def capture_stdout &block
+def capture_stdout(&block)
   old_stdout = $stdout
   fake_stdout = StringIO.new
   $stdout = fake_stdout
