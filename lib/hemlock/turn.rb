@@ -12,9 +12,9 @@ module Hemlock
       puts @flashcard.question
       guess = Readline.readline('>> ', false)
       if @flashcard.correct?(guess)
-        printf Rainbow('Correct').green
+        puts Rainbow('Correct').green
       else
-        printf Rainbow('You must submit to the quarries').red
+        puts Rainbow('You must submit to the quarries').red
         punishment
       end
     end
@@ -30,8 +30,7 @@ module Hemlock
         if @flashcard.correct?(guess)
           i += 1
         else
-          puts printf Rainbow('Who are you? Sisyphus?!').red
-          puts "\n"
+          puts Rainbow('Who are you? Sisyphus?!').red
           redo
         end
       end
