@@ -31,6 +31,7 @@ module Hemlock
           i += 1
         else
           puts printf Rainbow('Who are you? Sisyphus?!').red
+          puts "\n"
           redo
         end
       end
