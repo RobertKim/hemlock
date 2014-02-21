@@ -30,7 +30,7 @@ module Hemlock
         if @flashcard.correct?(guess)
           i += 1
         else
-          printf Rainbow('Who are you? Sisyphus?!').red
+          puts printf Rainbow('Who are you? Sisyphus?!').red
           redo
         end
       end
