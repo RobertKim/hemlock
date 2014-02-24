@@ -27,6 +27,7 @@ module Hemlock
         puts @flashcard.question
         puts @flashcard.answer
         guess = Readline.readline('>> ', true)
+        break if guess == 'next'.downcase
         if @flashcard.correct?(guess)
           i += 1
         else
